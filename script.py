@@ -4,6 +4,8 @@ class Timer:
     def __init__(self, func):
         self.NUM_RUNS = 100
         self.func = func
+        self.__name__ = func.__name__
+        self.__doc__ = func.__doc__
 
     def __call__(self, *args, **kwargs):
         avg_time = 0
@@ -16,3 +18,18 @@ class Timer:
         func_name = self.func.__name__
         print("[Timer] Среднее время выполнения функции %s за %s запусков: %.5f секунд" % (func_name, self.NUM_RUNS, avg_time))
         return self.func(*args, **kwargs)
+
+
+@Timer
+def Fibonacci(up_to):
+    """Состаавляет последовательность Фибоначчи в пределах, определенных пользователем"""
+    Fib_seq = [1, 2]
+    while Fib_seq[-1] < (up_to - Fib_seq[-2]):
+        new = Fib_seq[-1] + Fib_seq[-2]
+        Fib_seq.append(new)
+    return Fib_seq
+
+Fibonacci(4000000000)
+
+print(Fibonacci.__name__)
+print(Fibonacci.__doc__)
