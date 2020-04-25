@@ -16,7 +16,7 @@ class Timer:
             avg_time += (t1 - t0)
         avg_time /= self.NUM_RUNS
         func_name = self.func.__name__
-        print("[Timer] Среднее время выполнения функции %s за %s запусков: %.5f секунд" % (func_name, self.NUM_RUNS, avg_time))
+        print("Среднее время выполнения функции %s за %s запусков: %.5f секунд" % (func_name, self.NUM_RUNS, avg_time))
         return self.func(*args, **kwargs)
 
 
@@ -29,7 +29,7 @@ def Fibonacci(up_to):
         Fib_seq.append(new)
     return Fib_seq
 
-Fibonacci(4000000000)
+Fibonacci(900000000000000000000000)
 
 print(Fibonacci.__name__)
 print(Fibonacci.__doc__)
